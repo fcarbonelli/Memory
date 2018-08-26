@@ -29,7 +29,7 @@ public class TileColor : MonoBehaviour {
 
         if (isPath && trigger == false)
         {
-            StartCoroutine(showPath());
+            //StartCoroutine(showPath());
             trigger = true;
         }
     }
@@ -75,7 +75,6 @@ public class TileColor : MonoBehaviour {
     public void SetBlue()
     {
         renderer.material.color = new Color(0f, 100f, 255f, 1f); //AZUL
-        Debug.Log("ass");
     }
     public void SetGrety()
     {

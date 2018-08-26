@@ -7,6 +7,8 @@ public class GeneratePath : MonoBehaviour {
     public List<int> posX = new List<int>();
     public List<int> posY = new List<int>();
 
+    public List<Vector3> pathFollower = new List<Vector3>();
+
     [System.Serializable]
     public class Path
     {
@@ -15,7 +17,7 @@ public class GeneratePath : MonoBehaviour {
     public Path[] pathVertical;
 
     int medida;
-    public GameObject tile;
+    public GameObject tile, follower;
     public int numeroTile = 0;
 
     // Use this for initialization
@@ -26,11 +28,13 @@ public class GeneratePath : MonoBehaviour {
         GenerarPath();
         medida = pathVertical.Length;
         StartCoroutine(SpawnTiles());
-        //MostrarCaminoAzul(); 
-	}
-	
-	// Update is called once per frame
-	void Update ()
+
+        Instantiate(follower);
+
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
         if (numeroTile == posX.Count)
         {
@@ -175,7 +179,7 @@ public class GeneratePath : MonoBehaviour {
 
         SetCorrectPath();
 
-        int ax = 0; int ay = 0;
+        int ax = 0; int ay = 0; //int contador = 0;
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("TileCamino"))
         {
             go.GetComponent<TileColor>().x = ax;
@@ -184,8 +188,13 @@ public class GeneratePath : MonoBehaviour {
             if (pathVertical[ax].pathHorizontal[ay] == 1)
             {
                 go.GetComponent<TileColor>().isPath = true;
-                //go.GetComponent<TileColor>().SetBlue();
-                //StartCoroutine(MostrarCaminoAzul(go));
+                //if (posX[contador] == ax && posY[contador] == ay)
+                //{
+                //    pathFollower.Add(go.transform.position);
+                //    contador++;
+                //}
+                
+                
             }
 
             ay++;
@@ -195,8 +204,40 @@ public class GeneratePath : MonoBehaviour {
                 ax++;
             }
         }
-        
 
+        CheckCoords();
+
+
+
+    }
+
+    public void CheckCoords()
+    {
+        int contador = 0;
+        while (contador <= posX.Count)
+        {
+            int ax = 0; int ay = 0;
+            foreach (GameObject go in GameObject.FindGameObjectsWithTag("TileCamino"))
+            {            
+                if (pathVertical[ax].pathHorizontal[ay] == 1)
+                {
+                    if (posX[contador] == ax && posY[contador] == ay)
+                    {
+                         pathFollower.Add(go.transform.position);
+                         contador++;
+                    }
+                }
+
+                ay++;
+                if (ay == medida)
+                {
+                    ay = 0;
+                    ax++;
+                }
+
+            }
+        }
+        
     }
 
     
