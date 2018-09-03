@@ -18,6 +18,7 @@ public class GeneratePath : MonoBehaviour {
 
     int medida;
     public GameObject tile, follower;
+    float posFollower;
     public int numeroTile = 0;
 
     // Use this for initialization
@@ -29,7 +30,7 @@ public class GeneratePath : MonoBehaviour {
         medida = pathVertical.Length;
         StartCoroutine(SpawnTiles());
 
-        Instantiate(follower);
+        Instantiate(follower, new Vector3(posFollower, -3.5f, 0), Quaternion.identity);
 
     }
 
@@ -42,12 +43,24 @@ public class GeneratePath : MonoBehaviour {
         }
 	}
 
+    public void GetFollowerPos(int tipo)
+    {
+        switch (tipo)
+        {
+            case 0: posFollower = -1.5f; break;
+            case 1: posFollower = -0.5f; break;
+            case 2: posFollower = 0.5f; break;
+            case 3: posFollower = 1.5f; break;
+            case 4: posFollower = 1.5f; break;
+        }
+    }
+
     public void GenerarPath()
     {
         //POSICION RANDOM DE LA PRIMERA FILA DE ARRIBA
         int posRandom = Random.Range(0,pathVertical[0].pathHorizontal.Length);
         pathVertical[0].pathHorizontal[posRandom] = 1;
-        SetList(0, posRandom);
+        SetList(0, posRandom); GetFollowerPos(posRandom);
 
         for (int i = 0; i < pathVertical.Length; i++)
         {

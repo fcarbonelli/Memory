@@ -5,7 +5,7 @@ using UnityEngine;
 public class PathFollower : MonoBehaviour {
    
     
-    public float speed = 10f;
+    public float speed = 12f;
     float timer = 0f;
     int cant = 0;
 
@@ -26,7 +26,7 @@ public class PathFollower : MonoBehaviour {
                 GameObject.Find("PathGenerator").GetComponent<GeneratePath>().pathFollower[cant], speed*Time.deltaTime);
 
             timer += Time.deltaTime;
-            if (timer >= .25f)
+            if (timer >= .2f)
             {
 
                 cant++;
@@ -35,7 +35,7 @@ public class PathFollower : MonoBehaviour {
             }
         }
         else if(cant >= GameObject.Find("PathGenerator").GetComponent<GeneratePath>().pathFollower.Count)
-        { transform.position += Vector3.up * Time.deltaTime;}
+        { transform.position += Vector3.up * Time.deltaTime * 2;}
 	}
 
     public void GetPath()

@@ -5,6 +5,7 @@ using UnityEngine;
 public class TileColor : MonoBehaviour {
 
     SpriteRenderer renderer;
+    public Sprite baldosa;
     
     public bool isPath, trigger;
     public int x, y = 0;
@@ -49,7 +50,8 @@ public class TileColor : MonoBehaviour {
         {
             if (generator.GetComponent<GeneratePath>().posX[numeroT] == x && generator.GetComponent<GeneratePath>().posY[numeroT] == y)
             {
-                SetGreen();
+                //SetGreen();
+                renderer.sprite = baldosa;
                 generator.GetComponent<GeneratePath>().numeroTile++;
             }
             else
