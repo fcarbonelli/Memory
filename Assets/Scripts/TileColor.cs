@@ -56,13 +56,13 @@ public class TileColor : MonoBehaviour {
             }
             else
             {
-                SetRed();
+                IncorrectTile();
             }
            
         }
         else
         {
-            SetRed();
+            IncorrectTile();
         }
     }
 
@@ -70,9 +70,22 @@ public class TileColor : MonoBehaviour {
     {
         renderer.color = new Color(0f, 220f, 0f, 1f); //VERDE
     }
-    public void SetRed()
+    public void IncorrectTile()
     {
-        renderer.color = new Color(255f, 0f, 0f, 1f); //ROJO
+        //renderer.color = new Color(255f, 0f, 0f, 1f); //ROJO
+        if (isPath)
+        {
+            var animator = gameObject.GetComponent<Animator>();
+            animator.Play("IncorrectTile");
+        }
+        else
+        {
+            var animator = gameObject.GetComponent<Animator>();
+            animator.Play("Destroytile");
+
+            Destroy(gameObject, 1f);
+        }
+        
     }
     public void SetBlue()
     {

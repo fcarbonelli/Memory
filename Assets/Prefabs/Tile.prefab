@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212541347721302068}
   - component: {fileID: 114339475967260388}
   - component: {fileID: 61283886598655348}
+  - component: {fileID: 95409261789552712}
   m_Layer: 0
   m_Name: Tile
   m_TagString: TileCamino
@@ -36,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1543186122795694}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.19, y: -0.46, z: 0}
+  m_LocalPosition: {x: -1.53, y: -1.3, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -67,6 +68,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
+--- !u!95 &95409261789552712
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1543186122795694}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 84b3afd4ce4683d4e84a226218249617, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114339475967260388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -83,8 +101,8 @@ MonoBehaviour:
   trigger: 0
   x: 2
   y: 3
-  tileX: 0000000000000000010000000200000003000000
-  tileY: 0100000000000000000000000000000000000000
+  tileX: 000000000000000001000000020000000300000003000000
+  tileY: 000000000100000001000000010000000100000000000000
   numeroT: 0
   generator: {fileID: 0}
 --- !u!212 &212541347721302068

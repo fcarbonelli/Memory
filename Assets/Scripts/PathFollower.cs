@@ -12,8 +12,8 @@ public class PathFollower : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        transform.position = new Vector3(GameObject.Find("PathGenerator").GetComponent<GeneratePath>().pathFollower[1].x, transform.position.y);
-        //GetPath();
+        //transform.position = new Vector3(GameObject.Find("PathGenerator").GetComponent<GeneratePath>().pathFollower[1].x, transform.position.y);
+        
 	}
 	
 	// Update is called once per frame
@@ -35,18 +35,8 @@ public class PathFollower : MonoBehaviour {
             }
         }
         else if(cant >= GameObject.Find("PathGenerator").GetComponent<GeneratePath>().pathFollower.Count)
-        { transform.position += Vector3.up * Time.deltaTime * 2;}
+        { transform.position += Vector3.up * Time.deltaTime * 2.5f;}
 	}
 
-    public void GetPath()
-    {
-        int pos = GameObject.Find("PathGenerator").GetComponent<GeneratePath>().pathFollower.Count;
-
-        Vector3 vec = new Vector3(
-            GameObject.Find("PathGenerator").GetComponent<GeneratePath>().pathFollower[pos].x,
-            GameObject.Find("PathGenerator").GetComponent<GeneratePath>().pathFollower[pos].y +1,
-            GameObject.Find("PathGenerator").GetComponent<GeneratePath>().pathFollower[pos].z);
-
-        GameObject.Find("PathGenerator").GetComponent<GeneratePath>().pathFollower.Add(vec);
-    }
+    
 }
