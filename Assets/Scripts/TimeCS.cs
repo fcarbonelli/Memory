@@ -12,7 +12,7 @@ public class TimeCS : MonoBehaviour
     public Slider slider;
 
     
-void start()
+    void start()
     {
        // slider = gameObject.GetComponent<Slider>();
     }
@@ -27,12 +27,13 @@ void start()
 
             default_time -= Time.deltaTime;
             slider.value = default_time;
-            Debug.Log(slider.value);
+            
             if (current_time < 0)
             {
                 islevelon = false;
             }
 
         }
+
     }
 }

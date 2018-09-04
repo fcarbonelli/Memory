@@ -288,6 +288,7 @@
     <Compile Include="Assets\Scripts\GeneratePath.cs" />
     <Compile Include="Assets\Scripts\PathFollower.cs" />
     <Compile Include="Assets\Scripts\TileColor.cs" />
+    <Compile Include="Assets\Scripts\TimeCS.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
