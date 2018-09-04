@@ -25,7 +25,7 @@ public class GeneratePath : MonoBehaviour {
     {
         // D 4 N 1 L 0 3/9/18
         GameObject.Find("Time_Slider").GetComponent<TimeCS>().islevelon = true;
-        Debug.Log("activar no jutsu");
+        
         //
         posX.Clear(); posY.Clear();
 
