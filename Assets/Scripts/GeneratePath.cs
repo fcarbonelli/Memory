@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GeneratePath : MonoBehaviour {
-
     public List<int> posX = new List<int>();
     public List<int> posY = new List<int>();
 
@@ -24,6 +23,10 @@ public class GeneratePath : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        // D 4 N 1 L 0 3/9/18
+        GameObject.Find("Time_Slider").GetComponent<TimeCS>().islevelon = true;
+        Debug.Log("activar no jutsu");
+        //
         posX.Clear(); posY.Clear();
 
         GenerarPath();
@@ -40,6 +43,7 @@ public class GeneratePath : MonoBehaviour {
         if (numeroTile == posX.Count)
         {
             Application.LoadLevel(Application.loadedLevel);
+
         }
 	}
 
