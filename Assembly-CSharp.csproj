@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{904CF56D-2F0D-2130-805B-788032ECA3EF}</ProjectGuid>
+    <ProjectGuid>{38D907CB-79A7-C8C6-7F2F-0C11AD1A2892}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -53,15 +53,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GeneratePath.cs" />
      <Compile Include="Assets\Scripts\PathFollower.cs" />
      <Compile Include="Assets\Scripts\TileColor.cs" />
      <Compile Include="Assets\Scripts\TimeCS.cs" />
- <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/Danilo/Desktop/Unity Projects/Memory-master/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
- </Reference>
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>C:/Users/Danilo/Desktop/Unity Projects/Memory-master/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/Danilo/Desktop/Unity Projects/Project Memory/Memory/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.PackageManagerUI.Editor">
+ <HintPath>C:/Users/Danilo/Desktop/Unity Projects/Project Memory/Memory/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

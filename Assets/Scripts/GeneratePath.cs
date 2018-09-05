@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GeneratePath : MonoBehaviour {
     public List<int> posX = new List<int>();
@@ -21,11 +22,10 @@ public class GeneratePath : MonoBehaviour {
     public int numeroTile = 0;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         // D 4 N 1 L 0 3/9/18
         GameObject.Find("Time_Slider").GetComponent<TimeCS>().islevelon = true;
-        
         //
         posX.Clear(); posY.Clear();
 
@@ -36,15 +36,43 @@ public class GeneratePath : MonoBehaviour {
         Instantiate(follower, new Vector3(posFollower, -3.5f, 0), Quaternion.identity);
 
     }
-
-    // Update is called once per frame
-    void Update ()
+    void Awake()
     {
-        if (numeroTile == posX.Count)
-        {
-            Application.LoadLevel(Application.loadedLevel);
+        // D 4 N 1 L 0 5/9/18
+        //  DontDestroyOnLoad(GameObject.Find("Time_Slider"));
+        // 
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        // D 4 N 1 L 0 5/9/18
+        if (GameObject.Find("Time_Slider").GetComponent<TimeCS>().islevelon)
+            //
 
-        }
+            if (numeroTile == posX.Count)
+            {
+                // D 4 N 1 L 0 5/9/18
+                // Application.Load(Application.loadedLevel);
+                // 
+
+                // D 4 N 1 L 0 5/9/18
+                // Esta linea determina la cantidad de tiempo que se tardó en el nivel.
+                //GameObject.Find("Time_Slider").GetComponent<TimeCS>().slider.maxValue - GameObject.Find("Time_Slider").GetComponent<TimeCS>().current_time = tiempototalenelnivel
+
+                if (GameObject.Find("Time_Slider").GetComponent<TimeCS>().created)
+                {
+                    if (GameObject.Find("Time_Slider").GetComponent<TimeCS>().slider.maxValue - GameObject.Find("Time_Slider").GetComponent<TimeCS>().current_time > 2f)
+                    {
+                        GameObject.Find("Time_Slider").GetComponent<TimeCS>().current_time += GameObject.Find("Time_Slider").GetComponent<TimeCS>().bonus_time;
+                    }
+
+                }
+
+                //
+
+                SceneManager.LoadScene("Main", LoadSceneMode.Single);
+            }
+
 	}
 
     public void GetFollowerPos(int tipo)

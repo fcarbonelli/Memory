@@ -77,6 +77,10 @@ public class TileColor : MonoBehaviour {
         {
             var animator = gameObject.GetComponent<Animator>();
             animator.Play("IncorrectTile");
+            
+            // D 4 N 1 L 0 5/9/18
+            GameObject.Find("Time_Slider").GetComponent<TimeCS>().current_time -= GameObject.Find("Time_Slider").GetComponent<TimeCS>().fault_time;
+            //
         }
         else
         {
@@ -84,6 +88,10 @@ public class TileColor : MonoBehaviour {
             animator.Play("Destroytile");
 
             Destroy(gameObject, 1f);
+            
+            // D 4 N 1 L 0 5/9/18
+            GameObject.Find("Time_Slider").GetComponent<TimeCS>().current_time -= GameObject.Find("Time_Slider").GetComponent<TimeCS>().penalty_time;
+            //
         }
         
     }

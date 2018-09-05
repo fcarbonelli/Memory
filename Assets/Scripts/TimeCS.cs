@@ -5,32 +5,41 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Slider))]
 public class TimeCS : MonoBehaviour
 {
+    public bool created = false;
     public bool islevelon;
-    public float current_time = 0f;
-    public float default_time = 0f;
+    public float current_time;
+    public float default_time;
+
+    public float penalty_time;
+    public float fault_time;
+    public float bonus_time;
 
     public Slider slider;
 
-    
-    void start()
+    void Awake()
     {
-       // slider = gameObject.GetComponent<Slider>();
+        slider.maxValue = default_time;
+        current_time = default_time;
+        if (!created)
+        { 
+                created = true;
+                Debug.Log("Awake: " + this.gameObject);
+         }
     }
 
-    // Invoked when the value of the slider changes.
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (islevelon)
         {
 
-            default_time -= Time.deltaTime;
-            slider.value = default_time;
+            current_time -= Time.deltaTime;
+            slider.value = current_time;
             
             if (current_time < 0)
             {
                 islevelon = false;
+                this.gameObject.transform.parent.FindChild("Game Over").gameObject.SetActive(true);
             }
 
         }
