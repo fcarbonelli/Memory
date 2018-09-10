@@ -67,7 +67,7 @@ public class GeneratePath : MonoBehaviour {
                     }
 
                 }
-
+                
                 //
 
                 SceneManager.LoadScene("Main", LoadSceneMode.Single);

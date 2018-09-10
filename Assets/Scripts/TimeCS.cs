@@ -39,7 +39,7 @@ public class TimeCS : MonoBehaviour
             if (current_time < 0)
             {
                 islevelon = false;
-                this.gameObject.transform.parent.FindChild("Game Over").gameObject.SetActive(true);
+                this.gameObject.transform.parent.Find("Game Over").gameObject.SetActive(true);
             }
 
         }

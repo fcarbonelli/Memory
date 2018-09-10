@@ -53,6 +53,7 @@ public class TileColor : MonoBehaviour {
                 //SetGreen();
                 renderer.sprite = baldosa;
                 generator.GetComponent<GeneratePath>().numeroTile++;
+                
             }
             else
             {

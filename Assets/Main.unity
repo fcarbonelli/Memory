@@ -390,10 +390,10 @@ MonoBehaviour:
   created: 0
   islevelon: 0
   current_time: 0
-  default_time: 10
-  penalty_time: 2
+  default_time: 15
+  penalty_time: 1
   fault_time: 1
-  bonus_time: 2
+  bonus_time: 2.5
   slider: {fileID: 1224149178}
 --- !u!114 &1224149178
 MonoBehaviour:
