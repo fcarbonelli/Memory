@@ -5,7 +5,7 @@ using UnityEngine;
 public class PathFollower : MonoBehaviour {
    
     
-    public float speed = 5f;
+    public float speed = 1.5f;
     float timer = 0f;
     int cant = 0;
 
@@ -25,7 +25,8 @@ public class PathFollower : MonoBehaviour {
             if (transform.position != GameObject.Find("PathGenerator").GetComponent<GeneratePath>().pathFollower[cant])
             {
                 transform.position = Vector3.MoveTowards(transform.position,
-                    GameObject.Find("PathGenerator").GetComponent<GeneratePath>().pathFollower[cant], speed*Time.deltaTime);
+                    GameObject.Find("PathGenerator").GetComponent<GeneratePath>().pathFollower[cant],
+                    SaveManager.Instance.state.speed*speed*Time.deltaTime);
             }
             else
             {

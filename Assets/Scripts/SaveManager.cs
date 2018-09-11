@@ -20,7 +20,7 @@ public class SaveManager : MonoBehaviour {
 
         DontDestroyOnLoad(gameObject);
         Instance = this;
-        Load();
+        Load(); state.speed = 1f;
 
         Debug.Log(Helper.Serialize<SaveState>(state));
     }
@@ -64,7 +64,17 @@ public class SaveManager : MonoBehaviour {
         else
         {
             return false;
-        }
+        }      
+    }
 
+    public void AumentarSpeed()
+    {
+
+        if (state.speed < 4f)
+        {
+            state.speed += .1f;
+        }               
+
+        Save();
     }
 }

@@ -6,7 +6,7 @@ public class SaveState
 
     public int Highscore = 0;
 
-    public float speed;
+    public float speed = 1f;
 
 
 }

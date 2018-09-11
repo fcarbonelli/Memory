@@ -12,7 +12,7 @@ public class TimeCS : MonoBehaviour
 
     public float penalty_time;
     public float fault_time;
-    public float bonus_time;
+    public float bonus_time;    
 
     public Slider slider;
 
@@ -33,7 +33,7 @@ public class TimeCS : MonoBehaviour
         if (islevelon)
         {
 
-            current_time -= Time.deltaTime;
+            current_time -= Time.deltaTime * (SaveManager.Instance.state.speed/3);
             slider.value = current_time;
             
             if (current_time < 0)

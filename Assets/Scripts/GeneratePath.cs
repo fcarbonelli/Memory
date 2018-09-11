@@ -67,13 +67,18 @@ public class GeneratePath : MonoBehaviour {
                     }
 
                 }
-                
-                //
-                
+
+
+                SaveManager.Instance.AumentarSpeed();
+
+                //NEXT LEVEL
                 SceneManager.LoadScene("Main", LoadSceneMode.Single);
             }
-
-	}
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SaveManager.Instance.Reset();
+        }
+    }
 
     public void GetFollowerPos(int tipo)
     {
