@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GeneratePath : MonoBehaviour {
     public List<int> posX = new List<int>();
     public List<int> posY = new List<int>();
-
+    
     public List<Vector3> pathFollower = new List<Vector3>();
 
     [System.Serializable]
@@ -34,7 +34,7 @@ public class GeneratePath : MonoBehaviour {
         StartCoroutine(SpawnTiles());
 
         Instantiate(follower, new Vector3(posFollower, -3.5f, 0), Quaternion.identity);
-
+        FindObjectOfType<AudioManager>().Play("random");
     }
     void Awake()
     {
@@ -69,7 +69,7 @@ public class GeneratePath : MonoBehaviour {
                 }
                 
                 //
-
+                
                 SceneManager.LoadScene("Main", LoadSceneMode.Single);
             }
 
@@ -190,7 +190,7 @@ public class GeneratePath : MonoBehaviour {
     {
         posX.Add(x); posY.Add(y);
 
-        Debug.Log(x + "" + y);
+        //Debug.Log(x + "" + y);
     }
 
     public void SetCorrectPath()

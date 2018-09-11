@@ -23,7 +23,7 @@ public class TimeCS : MonoBehaviour
         if (!created)
         { 
                 created = true;
-                Debug.Log("Awake: " + this.gameObject);
+                //Debug.Log("Awake: " + this.gameObject);
          }
     }
 
