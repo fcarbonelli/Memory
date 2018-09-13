@@ -6,7 +6,7 @@ public class TileColor : MonoBehaviour {
 
     SpriteRenderer renderer;
     public Sprite baldosa;
-     
+    
     public bool isPath, trigger;
     public int x, y = 0;
     public List<int> tileX = new List<int>();
@@ -53,7 +53,6 @@ public class TileColor : MonoBehaviour {
                 //SetGreen();
                 renderer.sprite = baldosa;
                 generator.GetComponent<GeneratePath>().numeroTile++;
-                
             }
             else
             {

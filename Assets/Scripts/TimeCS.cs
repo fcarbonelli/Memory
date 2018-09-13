@@ -21,10 +21,17 @@ public class TimeCS : MonoBehaviour
         slider.maxValue = default_time;
         current_time = default_time;
         if (!created)
+<<<<<<< HEAD
         { 
                 created = true;
                 //Debug.Log("Awake: " + this.gameObject);
          }
+=======
+        {
+            created = true;
+            Debug.Log("Awake: " + this.gameObject);
+        }
+>>>>>>> parent of 9a1d6ad... Timer 2
     }
 
     
@@ -38,8 +45,15 @@ public class TimeCS : MonoBehaviour
             
             if (current_time < 0)
             {
+<<<<<<< HEAD
                 islevelon = false;
                 this.gameObject.transform.parent.Find("Game Over").gameObject.SetActive(true);
+=======
+                aux_cant = false;
+                aux_time1 = 0.25f;
+                penalty = false;
+                slider.image.color = Color.Lerp(Color.yellow, Color.green, Time.deltaTime);
+>>>>>>> parent of 9a1d6ad... Timer 2
             }
 
         }
