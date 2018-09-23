@@ -27,19 +27,27 @@ public class TimeCS : MonoBehaviour
          }
     }
 
-    
+    private void Start()
+    {
+        slider = GameObject.Find("Time_Slider").GetComponent<Slider>();
+        
+
+    }
+
+
     void Update()
     {
         if (islevelon)
         {
 
             current_time -= Time.deltaTime * (SaveManager.Instance.state.speed/3);
-            slider.value = current_time;
-            
-            if (current_time < 0)
+            slider.value = current_time;   
+        
+
+        if (current_time < 0)
             {
                 islevelon = false;
-                this.gameObject.transform.parent.Find("Game Over").gameObject.SetActive(true);
+                this.gameObject.transform.parent.Find("GameOverMENU").gameObject.SetActive(true);
             }
 
         }

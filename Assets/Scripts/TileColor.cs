@@ -6,14 +6,14 @@ public class TileColor : MonoBehaviour {
 
     SpriteRenderer renderer;
     public Sprite baldosa;
-     
-    public bool isPath, trigger;
+
+    public bool isPath, trigger, hasCoin;
     public int x, y = 0;
     public List<int> tileX = new List<int>();
     public List<int> tileY = new List<int>();
 
     public int numeroT;
-    public GameObject generator;
+    public GameObject generator, tileparticle;
 
     // Use this for initialization
     void Start ()
@@ -21,7 +21,7 @@ public class TileColor : MonoBehaviour {
         renderer = GetComponent<SpriteRenderer>();
         tileX.Clear(); tileY.Clear();
         generator = GameObject.Find("PathGenerator");
-        
+               
 	}
 	
 	// Update is called once per frame
@@ -53,6 +53,7 @@ public class TileColor : MonoBehaviour {
                 //SetGreen();
                 renderer.sprite = baldosa;
                 generator.GetComponent<GeneratePath>().numeroTile++;
+                //Instantiate(tileparticle, transform.position, Quaternion.identity);
                 
             }
             else
@@ -83,8 +84,15 @@ public class TileColor : MonoBehaviour {
             GameObject.Find("Time_Slider").GetComponent<TimeCS>().current_time -= GameObject.Find("Time_Slider").GetComponent<TimeCS>().fault_time;
             //
         }
-        else
+
+        if (!isPath && hasCoin) //TILE CON MONEDA
         {
+            Destroy(gameObject.transform.GetChild(0).gameObject);
+            hasCoin = false;
+        }
+        else if(!isPath && !hasCoin)
+        {
+            
             var animator = gameObject.GetComponent<Animator>();
             animator.Play("Destroytile");
 

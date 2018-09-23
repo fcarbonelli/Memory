@@ -17,7 +17,7 @@ public class GeneratePath : MonoBehaviour {
     public Path[] pathVertical;
 
     int medida;
-    public GameObject tile, follower;
+    public GameObject tile, follower, coin;
     float posFollower;
     public int numeroTile = 0;
 
@@ -237,13 +237,16 @@ public class GeneratePath : MonoBehaviour {
 
             if (pathVertical[ax].pathHorizontal[ay] == 1)
             {
-                go.GetComponent<TileColor>().isPath = true;
-                //if (posX[contador] == ax && posY[contador] == ay)
-                //{
-                //    pathFollower.Add(go.transform.position);
-                //    contador++;
-                //}
-                
+                go.GetComponent<TileColor>().isPath = true;  
+            }
+            else if (pathVertical[ax].pathHorizontal[ay] == 0)
+            {
+                int ranCoin = Random.Range(0,30);
+                if (ranCoin == 0)
+                {
+                    go.GetComponent<TileColor>().hasCoin = true;
+                    Instantiate(coin ,go.transform);
+                }
                 
             }
 
