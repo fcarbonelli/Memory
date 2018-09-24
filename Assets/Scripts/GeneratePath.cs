@@ -73,6 +73,7 @@ public class GeneratePath : MonoBehaviour {
 
                 //NEXT LEVEL
                 SceneManager.LoadScene("Main", LoadSceneMode.Single);
+                GameObject.Find("Canvas").gameObject.GetComponent<ParticleSystem_CameraLocator>().RestartCanvasRenderCamera();
             }
         if (Input.GetKeyDown(KeyCode.R))
         {
