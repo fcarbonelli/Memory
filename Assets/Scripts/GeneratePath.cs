@@ -33,7 +33,7 @@ public class GeneratePath : MonoBehaviour {
         medida = pathVertical.Length;
         StartCoroutine(SpawnTiles());
 
-        Instantiate(follower, new Vector3(posFollower, -3.5f, 0), Quaternion.identity);
+        Instantiate(follower, new Vector3(posFollower, -3.5f, 180f), Quaternion.identity);
         FindObjectOfType<AudioManager>().Play("random");
     }
     void Awake()
@@ -72,6 +72,8 @@ public class GeneratePath : MonoBehaviour {
                 SaveManager.Instance.AumentarSpeed();
 
                 //NEXT LEVEL
+                GameObject.Find("Canvas").GetComponent<Level>().nivel += 1;
+
                 SceneManager.LoadScene("Main", LoadSceneMode.Single);
                 GameObject.Find("Canvas").gameObject.GetComponent<ParticleSystem_CameraLocator>().RestartCanvasRenderCamera();
             }
@@ -223,7 +225,7 @@ public class GeneratePath : MonoBehaviour {
             for (int j = 0; j < medida; j++)
             {
                 yield return new WaitForSeconds(0.02f);
-                Instantiate(tile, new Vector3(j - 1.5f, i - 1.5f, 0), transform.rotation);
+                Instantiate(tile, new Vector3(j - 1.5f, i - 1.5f, 180f), transform.rotation);
 
             }
         }
@@ -294,5 +296,6 @@ public class GeneratePath : MonoBehaviour {
         
     }
 
-    
+
+
 }

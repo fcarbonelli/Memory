@@ -16,7 +16,7 @@ public class TimeCS : MonoBehaviour
 
     public Slider slider;
 
-    void Awake()
+    public void Awake()
     {
         slider.maxValue = default_time;
         current_time = default_time;
