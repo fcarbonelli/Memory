@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GeneratePath : MonoBehaviour {
     public List<int> posX = new List<int>();
     public List<int> posY = new List<int>();
-    
+    public bool itcan;
     public List<Vector3> pathFollower = new List<Vector3>();
 
     [System.Serializable]
@@ -21,9 +22,12 @@ public class GeneratePath : MonoBehaviour {
     float posFollower;
     public int numeroTile = 0;
 
+    public Text contador_auxiliar;
+
     // Use this for initialization
     void Start()
     {
+        itcan = false;
         // D 4 N 1 L 0 3/9/18
         GameObject.Find("Time_Slider").GetComponent<TimeCS>().islevelon = true;
         //
@@ -97,14 +101,31 @@ public class GeneratePath : MonoBehaviour {
 
     public void GenerarPath()
     {
+        
         //POSICION RANDOM DE LA PRIMERA FILA DE ARRIBA
         int posRandom = Random.Range(0,pathVertical[0].pathHorizontal.Length);
         pathVertical[0].pathHorizontal[posRandom] = 1;
         SetList(0, posRandom); GetFollowerPos(posRandom);
-
+        
         for (int i = 0; i < pathVertical.Length; i++)
         {
-            int instruccion = Random.Range(0,4); // 0=izquierda 1=derecha 2,3=arriba
+            if (i >2 )
+            {
+
+            }
+            else
+            {
+           
+        int instruccion;
+           if (GameObject.Find("Canvas").GetComponent<Level>().nivel < 7)
+             {
+                instruccion = Random.Range(0, 4); // 0=izquierda 1=derecha 2,3=arriba
+             }
+                else
+                {
+                     instruccion = Random.Range(0, 2); // 0=izquierda 1=derecha 2,3=arriba
+                }
+           
             switch (instruccion)
             {
                 //IZQUIERDA
@@ -190,6 +211,7 @@ public class GeneratePath : MonoBehaviour {
                     }
                     break;
             }
+            }
         }
 
     }
@@ -203,6 +225,7 @@ public class GeneratePath : MonoBehaviour {
 
     public void SetCorrectPath()
     {
+        itcan = true;
         tile.GetComponent<TileColor>().tileX.Clear();
         tile.GetComponent<TileColor>().tileY.Clear();
 
@@ -240,7 +263,39 @@ public class GeneratePath : MonoBehaviour {
 
             if (pathVertical[ax].pathHorizontal[ay] == 1)
             {
-                go.GetComponent<TileColor>().isPath = true;  
+
+                go.GetComponent<TileColor>().isPath = true;
+               
+                //acá puedo agregar un tag
+
+                /*
+                if (GameObject.Find("Canvas").GetComponent<Level>().nivel > 0 && GameObject.Find("Canvas").GetComponent<Level>().nivel < 12)
+                {
+                    int random = Random.Range(0, 4);
+                    if (random > 2)
+                    {
+                         
+                        // Text tempTextBox = Instantiate(contador_auxiliar, new Vector3(go.transform.position.x, go.transform.position.y, 180f),new Quaternion())  as Text;
+                        // tempTextBox.transform.SetParent(Canvas.transform, false);
+
+                        go.GetComponent<TileColor>().is_dual= true;
+                        go.GetComponent<TileColor>().SetGreen();
+                    }
+                       }
+
+                if (GameObject.Find("Canvas").GetComponent<Level>().nivel > 12)
+                {
+                    int random = Random.Range(0, 4);
+                    if (random > 1)
+                    {
+                        go.GetComponent<TileColor>().is_dual = true;
+                        go.GetComponent<TileColor>().SetGreen();
+                    }
+
+
+                }
+                */
+
             }
             else if (pathVertical[ax].pathHorizontal[ay] == 0)
             {

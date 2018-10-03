@@ -97,14 +97,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54342bceaba31054a8e9234afee50f67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  was_clicked: 0
   baldosa: {fileID: 21300002, guid: 69f9ed95bb2eeab44bcd009be12064ec, type: 3}
+  is_dual: 0
+  contador_auxiliar: 0
   isPath: 0
   trigger: 0
   hasCoin: 0
   x: 2
   y: 3
-  tileX: 000000000100000001000000020000000200000003000000
-  tileY: 000000000000000001000000010000000200000002000000
+  tileX: 00000000000000000100000001000000020000000200000003000000
+  tileY: 01000000020000000200000001000000010000000200000002000000
   numeroT: 0
   generator: {fileID: 0}
   tileparticle: {fileID: 0}
@@ -144,7 +147,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 69f9ed95bb2eeab44bcd009be12064ec, type: 3}
-  m_Color: {r: 0.7941176, g: 0.7941176, b: 0.7941176, a: 1}
+  m_Color: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
